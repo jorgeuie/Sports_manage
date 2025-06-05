@@ -68,9 +68,25 @@ Where it's used: In the use of class lists like Player.players, Team.teams, Cont
 
 How it's used: While not the classic Singleton implementation that restricts creation to a single object, the purpose is the same: to provide a single global access point to a shared resource.  Player.players acts as a centralized registry of all created players. Any part of the program that needs to find a player by their ID can access this global list without needing to pass it as a parameter everywhere.
 
-# Composite pattern
+# Composite Pattern
 Category: Structural.
 
-Where it's used: In the Tournament and EventoDeportivo (Sports Event) classes.
+Where it's used: Primarily in the Team class and its relationship with FootballPlayer objects.
 
-How it's used: The Composite pattern allows you to treat a group of objects the same way you would a single object. In this case, I,ve a hierarchy: a Team is composed of Player objects; a Contest is composed of Players or Teams; and a Tournament or EventoDeportivo is composed of Contest objects. This "part-whole" structure allows you to build complex objects from simpler ones. A Tournament is a tree structure where the leaves are the players/teams and the intermediate nodes are the matches (Contest).
+How it's used:
+The Composite pattern allows you to compose objects into tree-like structures to represent hierarchies where both individual elements and collections of elements can be treated uniformly.
+
+In the project, the Team class uses Composition to manage its players:
+
+Component (Common Interface):
+
+The Player class, and specifically its subclass FootballPlayer, conceptually acts as the "Component." It defines the basic attributes (name, age, id) and behavior expected of any individual participant in a team.
+
+Leaf (Individual Object):
+
+A FootballPlayer object is a "Leaf." It's an individual, atomic unit within the team that does not contain other players. 
+
+Composite (Container Object):
+
+A Team object is the "Composite." It contains a collection (a list, self.players) of FootballPlayer "Leaf" objects.
+The Team class provides methods like add_player (to add a Leaf) and show_players (to interact with its contained Leaves). This allows you to manage the entire group of players (the team) as a single, cohesive unit.
