@@ -1,4 +1,7 @@
+Made by Jorge Garcia Fernandez ER-1936 and Manuel Mora Rivas ER-1937
+
 # Sport_system
+
 
 This project is a simple Python-based console application designed to manage sports entities like players, teams, referees, and contests. It allows for creating, viewing, editing, and deleting these entities, and even simulating score management for tennis and football matches.
 
